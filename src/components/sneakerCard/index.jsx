@@ -1,18 +1,19 @@
-import { Box, Stack, Typography } from "@mui/material"
+import { Box, Stack, Typography } from "@mui/material";
 
-function SneakerCard({img, name, price}) {
-
-  return(<Stack>
-    <img src={} alt="shoes" />
-    <Typography>{}</Typography>
+function SneakerCard({ img, name, price }) {
+  return (
     <Stack>
+      <img src={img} alt="shoes" />
+      <Typography>{name}</Typography>
       <Stack>
-        <Typography>Price</Typography>
-        <Typography>{}</Typography>
+        <Stack>
+          <Typography>Price</Typography>
+          <Typography>{price}</Typography>
+        </Stack>
+        <Box></Box>
       </Stack>
-      <Box></Box>
     </Stack>
-  </Stack>)
+  );
 }
 
-export default SneakerCard
+export default SneakerCard;
