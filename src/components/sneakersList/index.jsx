@@ -1,14 +1,14 @@
-import { Stack, Typography } from "@mui/material";
-import { data } from "../../data";
 import SneakerCard from "../sneakerCard";
 import { SneakersListStack, SneakersListTitle, SneakersStack } from "./styles";
+import { connect } from "react-redux";
 
-function SneakersList() {
+function SneakersList({ sneakers }) {
+  console.log(sneakers);
   return (
     <SneakersListStack>
       <SneakersListTitle variant="h1">Sneakers</SneakersListTitle>
       <SneakersStack>
-        {data.map((sneaker) => (
+        {sneakers.map((sneaker) => (
           <SneakerCard
             key={sneaker.id}
             img={sneaker.image}
@@ -21,4 +21,10 @@ function SneakersList() {
   );
 }
 
-export default SneakersList;
+const mapStateToProps = (state) => {
+  return {
+    sneakers: state.sneakers,
+  };
+};
+
+export default connect(mapStateToProps)(SneakersList);
